@@ -62,8 +62,8 @@ class Xmldata:
 
     def have_elements(self):
         # whether it has elements
-        return self.elements.count()!=0
+        return len(self.elements)!=0
 
     def have_attributes(self):
         # whether it has attributes
-        return self.atts.count()!=0
+        return len(self.atts)!=0
