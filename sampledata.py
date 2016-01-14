@@ -1,4 +1,5 @@
 import xmlclass
+import xmlconv
 '''
 sample xml data
 <Candidate xmlns="http://ns.hr-xml.org/2007-04-15" xml:lang="en-GB">
@@ -35,9 +36,11 @@ Attributes: xmlns="http://ns.hr-xml.org/2007-04-15" xml:lang="en-GB"
 '''
 biodes1 = xmlclass.Xmldata('DateOfBirth','1972-07-22')
 biodes2 = xmlclass.Xmldata('GenderCode','1')
+biodes3 = xmlclass.Xmldata("Empty tag")
 bio = xmlclass.Xmldata('BiologicalDescriptors')
 bio.addele(biodes1)
 bio.addele(biodes2)
+bio.addele(biodes3)
 a = xmlclass.Xmldata('Nationality','French')
 b = xmlclass.Xmldata('PrimaryLanguage','fr')
 dem = xmlclass.Xmldata('DemographicDescriptors')
@@ -70,3 +73,9 @@ def simplepass(a):
         for i in a.elements:
             simplepass(i)
     print "\n"
+
+print "The hardcoded sample data is as follows: "
+simplepass(root)
+
+
+xmlconv.convert(root)
